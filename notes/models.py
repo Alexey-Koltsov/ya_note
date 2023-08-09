@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.db import models
-
 from pytils.translit import slugify
 
 
@@ -36,4 +35,3 @@ class Note(models.Model):
             max_slug_length = self._meta.get_field('slug').max_length
             self.slug = slugify(self.title)[:max_slug_length]
         super().save(*args, **kwargs)
-
